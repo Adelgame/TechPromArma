@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+    <title>Опрос</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="http://techpromarma.ru/"><img src="Group1.svg" alt="Логотип" width="430" height="auto" id="logo"></a>
+        <div id="contactInfo">
+            <p style="font-size: 20px;">tpa@tehpromarma.ru</p>
+            <p style="font-size: 20px;">+7 (495) 955-78-87</p>
+            <p style="font-size: 18px;">Пн. – Пт.: с 9:00 до 17:00</p>
+        </div>
+    </header>
+    <main>
+        <div class="banner">
+            <div class="icon-container" onclick="toggleQuestion()">
+                <svg width="157" height="51" viewBox="0 0 157 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.93335 3L78.5061 48L154.079 3" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="questions-wrapper">
+            <!-- Первый вопрос -->
+            <div class="question-container" id="question-container-0">
+                <div class = "question">
+                    <p class="questiont-text">Есть ли у вас в системе участки со значительным перепадом высот?</p>
+                    <div class="buttons">
+                        <button class="answer-btn" onclick="answer('yes', 0)">Да</button>
+                        <button class="answer-btn" onclick="answer('no', 0)">Нет</button>
+                    </div>    
+                </div> 
+        
+                <div class="input-fields" style="display: none;" id="input-fields-0">
+                    <div class="fields-block">
+                        <p class="input-text">Введите высоту в метрах:</p>
+                        <input type="number" class="input-field" placeholder="Введите число" />   
+                        <p class="input-text">Введите длину в метрах:</p>
+                        <input type="number" class="input-field" placeholder="Введите число" /> 
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Второй вопрос -->
+            <div class="question-container" id="question-container-1" style="display: none;">
+                <div class = "question">  
+                    <p class="questiont-text">Есть ли в системе вертикальные участки протяженностью боле 20 метров?</p>
+                    <div class="buttons">
+                        <button class="answer-btn" onclick="answer('yes', 1)">Да</button>
+                        <button class="answer-btn" onclick="answer('no', 1)">Нет</button>
+                    </div>
+                </div> 
+                
+                <div class="input-fields" style="display: none;" id="input-fields-1">
+                    <div class="fields-block">
+                        <p class="input-text">Укажите перепад высот трубопровода в метрах:</p>
+                        <input type="number" class="input-field" placeholder="Введите число" /> 
+                    </div>
+                </div>
+            </div>
+
+            <!-- Третий вопрос -->
+            <div class="question-container" id="question-container-2" style="display: none;">
+                <div class = "question">  
+                    <p class="questiont-text">Есть ли в системе поршневые (плунжерные) насосы?</p>
+                    <div class="buttons">
+                        <button class="answer-btn" onclick="answer('yes', 2)">Да</button>
+                        <button class="answer-btn" onclick="answer('no', 2)">Нет</button>
+                    </div>
+                </div> 
+            </div>
+
+            <!-- Четвертый вопрос -->
+            <div class="question-container" id="question-container-3" style="display: none;">
+                <div class = "question">  
+                    <p class="questiont-text">Установлены ли в системе обратные клапаны после насосов?</p>
+                    <div class="buttons">
+                        <button class="answer-btn" onclick="answer('yes', 3)">Да</button>
+                        <button class="answer-btn" onclick="answer('no', 3)">Нет</button>
+                    </div>
+                </div> 
+                
+                <div class="input-fields" style="display: none;" id="input-fields-3">
+                    <div class = "question">  
+                        <p class="questiont-text">Происходят ли внезапные остановки потока, перезапуск системы?</p>
+                        <div class="buttons">
+                            <button class="answer-btn" onclick="answer('yes')">Да</button>
+                            <button class="answer-btn" onclick="answer('no')">Нет</button>
+                        </div>
+                    </div> 
+                </div>
+            </div> 
+            
+            <!-- Пятый вопрос -->
+            <div class="question-container" id="question-container-4" style="display: none;">
+                <div class = "question">  
+                    <p class="questiont-text">На каком расстоянии от насоса расположено колено или коллектор?</p>
+                    <div class="radio-buttons">
+                        <label>
+                            <input type="radio" name="favorite-color" value="red" onclick="handleRadioSelection(4, 'red')">
+                            До 10 метов
+                        </label>
+                        <label>
+                            <input type="radio" name="favorite-color" value="blue" onclick="handleRadioSelection(4, 'blue')">
+                            Далее 10 метров
+                        </label>
+                        <label>
+                            <input type="radio" name="favorite-color" value="green" onclick="handleRadioSelection(4, 'green')">
+                            Нет такой конфигурации
+                        </label>
+                    </div>
+                </div> 
+            </div>
+
+            <!-- Шестой вопрос -->
+            <div class="question-container" id="question-container-5" style="display: none;">
+                <div class = "question">  
+                    <p class="questiont-text">Присутствует ли в системе КИП?</p>
+                    <div class="buttons">
+                        <button class="answer-btn" onclick="answer('yes', 5)">Да</button>
+                        <button class="answer-btn" onclick="answer('no', 5)">Нет</button>
+                    </div>
+                </div> 
+            </div>
+            
+            <!-- Седьмой вопрос -->
+            <div class="question-container" id="question-container-6" style="display: none;">              
+                <div class="input-fields"  id="input-fields-6">
+                    <div class = "question">  
+                        <div class="fields-block">
+                            <p class="input-text">Какой суммарный расход в системе(м^3/с)?</p>
+                            <input type="number" id="input-field-6" class="input-field" placeholder="После ввода нажмите Enter" /> 
+                        </div>
+                    </div> 
+                </div>
+            </div>
+
+            <!-- Восьмой вопрос -->
+            <div class="question-container" id="question-container-7" style="display: none;">              
+                <div class="input-fields"  id="input-fields-7">
+                    <div class = "question">  
+                        <div class="fields-block">
+                            <p class="input-text">Укажите количество параллельных трубопроводов в системе:</p>
+                            <input type="number" id="input-field-7" class="input-field" placeholder="После ввода нажмите Enter" /> 
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            
+            <!-- Девятый вопрос -->
+            <div class="question-container" id="question-container-8" style="display: none;">              
+                <div class="input-fields" id="input-fields-8">
+                    <div class="fields-block" id="dynamic-fields-container">
+                        <!-- Динамически создаваемые поля появятся здесь -->
+                    </div>
+                    <button id="next-button-8" class="next-button answer-btn">Далее</button>
+                </div> 
+            </div>
+            
+            <!-- Десятый вопрос -->
+            <div class="question-container" id="question-container-9" style="display: none;">
+                <div class="input-fields">
+                    <div class="fields-block">
+                        <p class="input-text">Укажите рабочее давление в системе (МПа):</p>
+                        <input type="number" id="input-field-9" class="input-field" placeholder="После ввода нажмите Enter" />
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+        
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

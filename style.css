@@ -1,0 +1,242 @@
+body {
+    font-family: 'Inter', sans-serif; 
+    overflow-x: hidden;
+    transition: padding-bottom 0.5s ease; /* Плавное движение */
+}
+
+/* Для всех браузеров */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Убираем скроллбары */
+html {
+    scrollbar-width: none; /* Для Firefox */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* Для Webkit-браузеров (Chrome, Safari, Edge) */
+}
+
+/* Иконка внутри баннера */
+.icon-container {
+    cursor: pointer;
+    transition: transform 0.3s;
+    position: absolute; /* Абсолютное позиционирование внутри баннера */
+    bottom: 10%; /* Расстояние от нижнего края баннера */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translateX(-50%); /* Выравнивание по центру */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Обертка для всех вопросов */
+.questions-wrapper {
+    display: flex;
+    flex-direction: column;  /* Выстраиваем вопросы по вертикали */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px; /* Расстояние между вопросами */
+    margin-top: 20px;
+}
+
+/* Вопрос с вариантами ответа (скрыт изначально) */
+.question-container {
+    display: none; /* Скрыто по умолчанию */
+    width: 98.7vw;
+    height: auto;
+    background: linear-gradient(to right, #008BD0, #00476A);
+    border-radius: 56px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.questiont-text{
+    font-size: clamp(16px, 2.7vw, 26px);
+    color: #FFFFFF;
+    margin-left: 12vw;
+    width: 49vw;
+}
+
+.question{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 70px; 
+    margin-bottom: 70px;
+}
+
+/* Кнопки ответа */
+.answer-btn {
+    width: 9vw;
+    height: 7vh;
+    background-color: #FFFFFF;
+    text-align: center;
+    border: none;
+    font-size: clamp(16px, 2.7vw, 26px);
+    color: #00476A;
+    border-radius: 56px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+.answer-btn:hover {
+    background-color: transparent;
+    border: 3px solid white;
+    color: #FFFFFF;
+}
+
+.answer-btn.clicked {
+    background-color: transparent;
+    border: 3px solid white;
+    color: #FFFFFF;
+}
+
+.buttons{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 23vw;
+    margin-right: 12vw;
+    margin-bottom: 1vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*Кнопки далее*/
+.next-button{
+    margin-left: 12vw; 
+    margin-top: 2vh;
+}
+
+/*Радио-кнопки*/
+.radio-buttons{
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    font-size: clamp(16px, 2.7vw, 26px);
+    width: 23vw;
+    margin-right: 12vw;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Увеличение размера радио-кнопки */
+.radio-buttons input[type="radio"] {
+    width: 2vw; /* Увеличиваем ширину */
+    height: 2vw; /* Увеличиваем высоту */
+    appearance: none; /* Убираем стандартный стиль браузера */
+    border: 5px solid #f4f4f4; /* Граница кнопки */
+    border-radius: 50%; /* Радиус для круглой формы */
+    outline: none; /* Убираем обводку при фокусе */
+    cursor: pointer; /* Указатель меняется на "руку" при наведении */
+    transition: background-color 0.3s, border-color 0.3s; /* Плавный переход при наведении */
+}
+
+/* Цвет фона при наведении */
+.radio-buttons input[type="radio"]:hover {
+    border-color: #FFFFFF; /* Цвет границы при наведении */
+    background-color: transparent;
+}
+
+/* Цвет и стиль для активного состояния */
+.radio-buttons input[type="radio"]:checked {
+    background-color: #FFFFFF; /* Цвет заливки при активном состоянии */
+    border-color: #FFFFFF; 
+}
+
+/* Скрываем текстовое описание для радио-кнопки, выравниваем по центру */
+.radio-buttons label {
+    display: flex; /* Включаем flexbox */
+    align-items: center; /* Выравниваем по вертикали */
+    gap: 1vw; /* Отступ между кнопкой и текстом */
+    cursor: pointer; /* "Рука" при наведении */
+    margin: 5px 0;
+}
+
+
+
+/* Стили для новых текстовых полей */
+.input-fields {
+    margin-bottom: 15px;
+    
+}
+
+.input-fields input {
+    margin: 5px auto;
+    padding: 5px;
+    width: 73.6vw;
+    height: 6vh;
+    border-radius: 56px;
+    border: 0px;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    font-size: clamp(16px, 2.7vw, 26px);
+    color: #00476A;
+}
+
+.fields-block{
+    margin-left: 12vw;
+}
+
+.input-field:focus {
+    outline: none; /* Убирает стандартную обводку при фокусе */
+    box-shadow: none; /* Убирает любые тени при фокусе */
+
+}
+
+.input-text{
+    color: #FFFFFF;
+    font-size: clamp(16px, 2.7vw, 26px);
+}
+
+
+.new-question {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Стили для медиа-запросов */
+@media (max-width: 1980px){
+    header {
+        margin-left: 19.8%;
+        margin-right: 19.8%;
+        margin-top: 2.3vw;
+        margin-bottom: 2.3vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #logo {
+        width: 21.7vw;
+    }
+
+    #contactInfo {
+        text-align: right;
+        color: #00476A;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    #contactInfo p {
+        line-height: 0.5;
+    }
+
+    .banner {
+        width: 98.7vw;
+        height: 70vh;
+        background: linear-gradient(to right, #008BD0, #00476A);
+        border-radius: 56px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
