@@ -26,11 +26,49 @@ html::-webkit-scrollbar {
     cursor: pointer;
     transition: transform 0.3s;
     position: absolute; /* Абсолютное позиционирование внутри баннера */
-    bottom: 10%; /* Расстояние от нижнего края баннера */
+    bottom: 10vh; /* Расстояние от нижнего края баннера */
     left: 50%; /* Центрирование по горизонтали */
     transform: translateX(-50%); /* Выравнивание по центру */
     cursor: pointer;
     transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+/* Рисунки на баннере */
+.details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative; /* Убедитесь, что контейнер имеет относительное позиционирование */
+    overflow: hidden;
+    width: 98.7vw;
+    height: 70vh;
+    z-index: 0;
+    opacity: 0.7;
+}
+
+.detail1 svg{
+    width: 600px;
+    height: auto;
+    transform: rotate(30deg);
+}
+
+.detail2 svg{
+    width: 800px;
+    height: auto;
+    transform: rotate(-130deg);
+    top: 0; /* Привязка к верхнему краю контейнера */
+}
+
+.banner-text{
+    font-size: clamp(26px, 5vw, 46px);
+    color: #FFFFFF;
+    text-align: center;
+    position: absolute; /* Позиционируем поверх SVG */
+    top: 50%; /* Центрируем по вертикали */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translate(-50%, -50%); /* Сдвигаем текст, чтобы центрировать */
+    z-index: 1;
 }
 
 /* Обертка для всех вопросов */
@@ -69,6 +107,16 @@ html::-webkit-scrollbar {
     margin-bottom: 70px;
 }
 
+.option-question{
+    margin-left: 0;
+}
+
+.fourth-question{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 /* Кнопки ответа */
 .answer-btn {
     width: 9vw;
@@ -95,6 +143,60 @@ html::-webkit-scrollbar {
     border: 3px solid white;
     color: #FFFFFF;
 }
+
+/* Кнопки ответа */
+.answer-btn-extra {
+    width: 9vw;
+    height: 7vh;
+    background-color: #FFFFFF;
+    text-align: center;
+    border: none;
+    font-size: clamp(16px, 2.7vw, 26px);
+    color: #00476A;
+    border-radius: 56px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+.answer-btn-extra:hover {
+    background-color: transparent;
+    border: 3px solid white;
+    color: #FFFFFF;
+}
+
+.answer-btn-extra.clicked {
+    background-color: transparent;
+    border: 3px solid white;
+    color: #FFFFFF;
+}
+
+#end-btn{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.answer-end-btn {
+    width: 18.7vw;
+    height: 8vh;
+    background-color: #00476A;
+    text-align: center;
+    font-size: clamp(16px, 2.7vw, 26px);
+    color: white;
+    border-radius: 56px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: auto;
+}
+
+.answer-end-btn:hover {
+    background-color: transparent;
+    border: 3px solid #00476A;
+    color: #00476A;
+}
+
 
 .buttons{
     margin-top: auto;
@@ -158,7 +260,23 @@ html::-webkit-scrollbar {
     margin: 5px 0;
 }
 
-
+/*Стили для дроп листа*/
+.dropped-list{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 23vw;
+    margin-right: 12vw;
+    margin-bottom: 1vw;
+    font-size: clamp(16px, 2.7vw, 26px);
+    color: #00476A;
+    background-color: #FFFFFF;
+    border-radius: 56px;
+    border: none;
+    height: 7vh;
+    width: 25vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
 
 /* Стили для новых текстовых полей */
 .input-fields {
@@ -167,6 +285,25 @@ html::-webkit-scrollbar {
 }
 
 .input-fields input {
+    margin: 5px auto;
+    padding: 5px;
+    width: 73.6vw;
+    height: 6vh;
+    border-radius: 56px;
+    border: 0px;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    font-size: clamp(16px, 2.7vw, 26px);
+    color: #00476A;
+}
+
+/* Стили для новых текстовых полей */
+.input-fields-dis {
+    margin-bottom: 15px;
+    
+}
+
+.input-fields-dis input {
     margin: 5px auto;
     padding: 5px;
     width: 73.6vw;
@@ -192,6 +329,7 @@ html::-webkit-scrollbar {
 .input-text{
     color: #FFFFFF;
     font-size: clamp(16px, 2.7vw, 26px);
+    width: 73.6vw;
 }
 
 

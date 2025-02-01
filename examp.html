@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автосохранение данных</title>
+</head>
+<body>
+    <input type="text" id="input1" placeholder="Введите текст">
+    <input type="checkbox" id="checkbox1">
+
+    <script>
+        const input1 = document.getElementById('input1');
+        const checkbox1 = document.getElementById('checkbox1');
+
+        // Функция для сохранения состояния
+        function saveState() {
+            const data = {
+                inputValue: input1.value,
+                checkboxChecked: checkbox1.checked,
+                timestamp: new Date().getTime() // Метка времени для отслеживания срока действия
+            };
+
+            localStorage.setItem('pageState', JSON.stringify(data));
+        }
+
+        // Функция для загрузки состояния
+        function loadState() {
+            const savedData = localStorage.getItem('pageState');
+
+            if (savedData) {
+                const parsedData = JSON.parse(savedData);
+
+                // Проверяем, не истёк ли срок хранения (24 часа)
+                const now = new Date().getTime();
+                const isExpired = now - parsedData.timestamp > 24 * 60 * 60 * 1000; // 24 часа в миллисекундах
+
+                if (isExpired) {
+                    localStorage.removeItem('pageState'); // Удаляем устаревшие данные
+                    console.log('Сохранённые данные устарели и были удалены.');
+                } else {
+                    // Восстанавливаем состояние элементов
+                    input1.value = parsedData.inputValue || '';
+                    checkbox1.checked = parsedData.checkboxChecked || false;
+                }
+            }
+        }
+
+        // Устанавливаем обработчики событий для автоматического сохранения
+        input1.addEventListener('input', saveState); // Сохраняем при изменении текста
+        checkbox1.addEventListener('change', saveState); // Сохраняем при изменении состояния чекбокса
+
+        // Загружаем состояние при загрузке страницы
+        document.addEventListener('DOMContentLoaded', loadState);
+    </script>
+</body>
+</html>
